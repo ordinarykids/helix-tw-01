@@ -6,7 +6,7 @@ console.log
 let img;
 let c;
 
-const COLS = ['#ffd84c','#ff7a52','#8ecaca','#ecebe4']
+const COLS = ['#ffd84c', '#ff7a52', '#8ecaca', '#ecebe4']
 const CYCLE = 300;
 
 let units = [];
@@ -49,7 +49,7 @@ function draw() {
 	let frameRatioEased = easingEaseInOutCubic(frameRatio);
 	for (const i of units) i.draw(frameRatio);
 
-	image(img, 0, -100, 700, 700);
+	image(img, 0, -100, 733.979, 733.797);
 }
 
 
@@ -64,11 +64,11 @@ class Unit {
 	}
 
 	draw(ratio) {
-		if (this.mode < 1) drawCircleStripe(this.pos.x, this.pos.y, this.size, this.rot / 2, ratio, this.cols[0], this.cols[1]);
-		else if (this.mode < 2) drawTriangle2(this.pos.x, this.pos.y, this.size, this.rot, ratio, this.cols[0], this.cols[1]);
+		if (this.mode < 1) drawStripe(this.pos.x, this.pos.y, this.size, this.rot / 2, ratio, this.cols[0], this.cols[1]);
+		else if (this.mode < 2) drawTriangleStripe(this.pos.x, this.pos.y, this.size, this.rot, ratio, this.cols[0], this.cols[1]);
 		else if (this.mode < 3) drawCircleStripe(this.pos.x, this.pos.y, this.size, this.rot, ratio, this.cols[0], this.cols[1]);
-		else if (this.mode < 4) drawTriangle2(this.pos.x, this.pos.y, this.size, this.rot, ratio, this.cols[0], this.cols[1]);
-		else drawTriangle2(this.pos.x, this.pos.y, this.size, this.rot, ratio, this.cols[0], this.cols[1]);
+		else if (this.mode < 4) drawCircleStripe(this.pos.x, this.pos.y, this.size, this.rot, ratio, this.cols[0], this.cols[1]);
+		else drawMovingRect(this.pos.x, this.pos.y, this.size, this.rot, ratio, this.cols[0], this.cols[1]);
 	}
 
 }
@@ -171,79 +171,7 @@ function drawMovingRect(cx, cy, s, rot, ratio, c1, c2) {
 
 
 }
-function drawTriangle2(cx, cy, s, rot, ratio, c1, c2) {
-	let span = s * 3;
-	let rotUnit = rot;
 
-	let sizeRatio = easingEaseInOutCubic((ratio * 2) % 1);
-	let r = s * (1 - cos((sizeRatio) * TAU) * 0.1);
-	let offsetRatio = easingEaseInOutCubic((ratio * 2) % 1) + floor(ratio * 1);
-	let offset = offsetRatio * span;
-
-	rectMode(CENTER);
-	push();
-	translate(cx, cy);
-
-	noStroke();
-	fill(c1);
-	rect(0, 0, s, s, 0.1);
-	drawingContext.clip();
-
-	fill(c2);
-	for (let x = -s / 2 - span * 2; x < s / 2 + span * 2; x += span) {
-		//	circle(x + offset, 0, r*.5);
-		scale(1)
-		rotate(rot);
-		beginShape();
-		
-		vertex(-75 + x + offset, -130);
-		vertex(75 + x + offset, -130);
-		vertex(150 + x + offset, 0);
-		vertex(75 + x + offset, 130);
-		vertex(-75 + x + offset, 130);
-		vertex(-150 + x + offset, 0);
-		endShape(CLOSE);
-		// rotate(int(random()))
-	}
-	pop();
-}
-
-
-function drawHexagon(cx, cy, s, rot, ratio, c1, c2) {
-	let span = s * 3;
-	let rotUnit = rot;
-	console.log('rotUnit is ' + rotUnit)
-	let sizeRatio = easingEaseInOutCubic((ratio * 2) % 1);
-	let r = s * (1 - cos((sizeRatio) * TAU) * 0.1);
-	let offsetRatio = easingEaseInOutCubic((ratio * 2) % 1) + floor(ratio * 1);
-	let offset = offsetRatio * span;
-
-	rectMode(CENTER);
-	push();
-	translate(cx, cy);
-
-	noStroke();
-	fill(c1);
-	rect(0, 0, s, s, 0.1);
-	drawingContext.clip();
-
-	fill(c2);
-	for (let x = -s / 2 - span * 2; x < s / 2 + span * 2; x += span) {
-		//	circle(x + offset, 0, r*.5);
-		scale(1)
-		beginShape();
-		// rotate(rotUnit * 90)
-		vertex(-75 + x + offset, -130);
-		vertex(75 + x + offset, -130);
-		vertex(150 + x + offset, 0);
-		vertex(75 + x + offset, 130);
-		vertex(-75 + x + offset, 130);
-		vertex(-150 + x + offset, 0);
-		endShape(CLOSE);
-		// rotate(int(random()))
-	}
-	pop();
-}
 
 
 function easingEaseInOutCubic(x) {

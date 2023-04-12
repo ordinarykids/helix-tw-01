@@ -6,7 +6,7 @@ console.log
 let img;
 let c;
 
-const COLS = ['#ffd84c','#ff7a52','#8ecaca','#ecebe4']
+const COLS = ['#AFD7AA', '#CAE4C6', '#FBBDCD', '#FDDEE6', '#FCE59C', '#FEF2CE']
 const CYCLE = 300;
 
 let units = [];
@@ -65,7 +65,7 @@ class Unit {
 
 	draw(ratio) {
 		if (this.mode < 1) drawCircleStripe(this.pos.x, this.pos.y, this.size, this.rot / 2, ratio, this.cols[0], this.cols[1]);
-		else if (this.mode < 2) drawTriangle2(this.pos.x, this.pos.y, this.size, this.rot, ratio, this.cols[0], this.cols[1]);
+		else if (this.mode < 2) drawMovingRect(this.pos.x, this.pos.y, this.size, this.rot, ratio, this.cols[0], this.cols[1]);
 		else if (this.mode < 3) drawCircleStripe(this.pos.x, this.pos.y, this.size, this.rot, ratio, this.cols[0], this.cols[1]);
 		else if (this.mode < 4) drawTriangle2(this.pos.x, this.pos.y, this.size, this.rot, ratio, this.cols[0], this.cols[1]);
 		else drawTriangle2(this.pos.x, this.pos.y, this.size, this.rot, ratio, this.cols[0], this.cols[1]);
