@@ -19,8 +19,8 @@ function preload() {
 }
 
 function setup() {
-	let s = min(windowWidth, windowHeight) * 0.6;
-	createCanvas(s, s);
+	//let s = min(windowWidth, windowHeight) * 0.6;
+	createCanvas(600, 600);
 	let num = 4;
 	let span = width / num;
 
