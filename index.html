@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helix - Early Animation Prototype 4/10/23</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: #D8E1E5;
+      font-family: 'TT Norms';
+      font-size: xx-large;
+    }
+
+    /* main {
+      width: 50vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    } */
+
+    .headerFake {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%; 
+    }
+ 
+    img {
+      width: 100%;
+    }
+  
+    .heroBlock {
+      font-size: 5.5vw;
+      line-height: 5vw;
+    } 
+  </style>
+  <script src="../p5.min.js"></script>
+  <!-- <script src="../addons/p5.sound.js"></script> -->
+  <script src="sketch5.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+
+  <nav class="bg-[#F5F5F5] p-4 h-32  align-middle">
+    <div class="container p-4 mx-auto flex items-center ">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <img class="h-8 w-64" src="images/heliox-logo.svg" alt="Your Logo">
+      </div>
+  
+      <!-- Center column -->
+      <div class="flex-grow text-center align-middle ">
+        <ul class="flex justify-center space-x-16 align-middle">
+          <li><a href="#" class="text-[#373837] hover:text-[#777777]">Our Services</a></li>
+          <li><a href="#" class="text-[#373837] hover:text-[#777777]">Resources</a></li>
+          <li><a href="#" class="text-[#373837] hover:text-[#777777]">Company</a></li>
+        </ul>
+      </div>
+  
+      <!-- Right column -->
+      <div class="flex-shrink-0 text-right">
+        <a href="#" class="text-white hover:text-gray-300">Login</a>
+      </div>
+    </div>
+  </nav>
+  <!-- <div class="headerFake">
+    <img src="images/headers.svg" alt="" style="width:100%">
+  </div> -->
+  <!-- <div class="heroBlock grid grid-cols-2 ">
+    <div class=" m-auto">
+      <h1 class=" black w-4/5 m-auto">Helix is the leading population genomics and viral surveillance company.</h1>
+    </div>
+    <div class="bg-red-100 ">
+      
+    </div>
+  </div> -->
+
+
+  <div class="flex w-full">
+    
+    <main class="w-1/2 heroBlock">
+    
+      <h1 class=" black w-4/5 m-auto">Helix is the leading population genomics and viral surveillance company.</h1>
+      <div>
+        asda
+      </div>
+    </main>
+
+    <aside class="w-1/2 h-screen sticky top-16 bg-red-100">
+      <div class="m-32">
+        <main id="heroAnimation" class="ml-auto mr-auto mt-8">
+        </main>
+      </div>
+      
+    </aside>
+  </div>
+
+
+
+  
+</body>
+
+</html>
