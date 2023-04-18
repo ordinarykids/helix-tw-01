@@ -1,6 +1,4 @@
-const URL = "https://coolors.co/f45b83-f8be08-a4fff0-7abc71-ff6565";
 
-console.log
 
 
 let img;
